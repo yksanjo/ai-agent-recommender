@@ -4,6 +4,32 @@ An intelligent recommender agent that helps users discover the perfect AI agent 
 
 > **Note**: This project is built on top of the [500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository. The original repository contains the curated list of use cases, while this project provides an intelligent recommender system to help users discover relevant agents.
 
+## 🎨 Screenshots
+
+> **Note**: Screenshots coming soon! See [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md) for instructions on adding screenshots.
+
+<!-- 
+Once you have screenshots, uncomment and update these:
+
+### Web Interface
+![Main Interface](docs/images/web-ui-main.png)
+*Main search interface with filters*
+
+![Search Results](docs/images/web-ui-search.png)
+*Search results with recommendations*
+
+![Conversation Mode](docs/images/web-ui-conversation.png)
+*AI agent conversation interface*
+
+### CLI Interface
+![Interactive Mode](docs/images/cli-interactive.png)
+*CLI interactive mode with rich formatting*
+
+### API Documentation
+![API Docs](docs/images/api-docs.png)
+*FastAPI Swagger documentation*
+-->
+
 ## Features
 
 - 🤖 **Intelligent Recommendations**: Uses LangGraph and RAG to understand your needs and recommend relevant AI agent projects
@@ -133,6 +159,15 @@ agent-recommender/
 │   └── app.py                  # Streamlit frontend
 └── requirements.txt
 ```
+
+## Deployment
+
+For deployment options and cost analysis, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+**Quick Summary:**
+- **Free Tier**: $0/month (Render + Streamlit Cloud) + OpenAI costs
+- **Production**: $10-20/month (Railway/Render) + OpenAI costs
+- **Vercel**: Not recommended without refactoring (see deployment guide)
 
 ## License
 
