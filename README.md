@@ -2,6 +2,8 @@
 
 An intelligent recommender agent that helps users discover the perfect AI agent use case from the [500+ AI Agents Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository.
 
+> **Note**: This project is built on top of the [500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository. The original repository contains the curated list of use cases, while this project provides an intelligent recommender system to help users discover relevant agents.
+
 ## Features
 
 - 🤖 **Intelligent Recommendations**: Uses LangGraph and RAG to understand your needs and recommend relevant AI agent projects
