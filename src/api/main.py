@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 from src.agent.recommender_agent import create_agent
+from src.agent.enhanced_agent import create_enhanced_agent
 from src.rag.retriever import UseCaseRetriever
 
 load_dotenv()
@@ -34,6 +35,7 @@ app.add_middleware(
 
 # Global instances
 agent = None
+enhanced_agent = None
 retriever = None
 
 
@@ -43,6 +45,14 @@ def get_agent():
     if agent is None:
         agent = create_agent()
     return agent
+
+
+def get_enhanced_agent():
+    """Get or create enhanced agent instance."""
+    global enhanced_agent
+    if enhanced_agent is None:
+        enhanced_agent = create_enhanced_agent()
+    return enhanced_agent
 
 
 def get_retriever():
@@ -88,6 +98,19 @@ class AgentQueryResponse(BaseModel):
     recommendations: Optional[List[RecommendationResponse]] = None
 
 
+class ChatRequest(BaseModel):
+    query: str = Field(..., description="User's chat message")
+    thread_id: str = Field("default", description="Conversation thread ID")
+    conversation_history: Optional[List[Dict[str, str]]] = Field(None, description="Previous conversation messages")
+
+
+class ChatResponse(BaseModel):
+    response: str
+    recommendations: List[RecommendationResponse] = []
+    suggestions: List[str] = []
+    plan: Optional[str] = None
+
+
 @app.get("/")
 async def root():
     """Root endpoint."""
@@ -97,6 +120,7 @@ async def root():
         "endpoints": {
             "search": "/api/search",
             "agent_query": "/api/agent-query",
+            "chat": "/api/chat",
             "industries": "/api/industries",
             "frameworks": "/api/frameworks",
             "health": "/health"
@@ -201,6 +225,46 @@ async def get_frameworks():
         retriever = get_retriever()
         frameworks = retriever.get_all_frameworks()
         return {"frameworks": frameworks, "total": len(frameworks)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    """
+    Enhanced chat endpoint with the improved agentic recommender.
+    This endpoint provides conversational AI that can help users discover,
+    understand, and build AI agents.
+    """
+    try:
+        enhanced_agent = get_enhanced_agent()
+        
+        # Convert conversation history if provided
+        history = None
+        if request.conversation_history:
+            history = request.conversation_history
+        
+        # Get chat response
+        result = enhanced_agent.chat(
+            query=request.query,
+            thread_id=request.thread_id,
+            conversation_history=history
+        )
+        
+        # Convert recommendations to response model
+        recommendations = []
+        for rec in result.get("recommendations", []):
+            try:
+                recommendations.append(RecommendationResponse(**rec))
+            except:
+                pass
+        
+        return ChatResponse(
+            response=result.get("response", ""),
+            recommendations=recommendations,
+            suggestions=result.get("suggestions", []),
+            plan=result.get("plan")
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

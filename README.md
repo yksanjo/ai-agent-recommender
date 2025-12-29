@@ -1,8 +1,16 @@
-# AI Agent Recommender System
+# 🤖 AI Agent Advisor
 
-An intelligent recommender agent that helps users discover the perfect AI agent use case from the [500+ AI Agents Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository.
+An **intelligent, agentic chatbot** that helps you discover, understand, and build AI agents from 500+ projects. This isn't just a recommender—it's a sophisticated AI advisor that can guide you through the entire journey of working with AI agents.
 
-> **Note**: This project is built on top of the [500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository. The original repository contains the curated list of use cases, while this project provides an intelligent recommender system to help users discover relevant agents.
+> **Note**: This project is built on top of the [500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects) repository. The original repository contains the curated list of use cases, while this project provides an intelligent, conversational advisor to help you discover, understand, and build agents.
+
+## ✨ What Makes This Special
+
+- 🧠 **Agentic Intelligence**: Not just search—it plans, reasons, and adapts to your needs
+- 💬 **Conversational**: Natural chat interface that understands context and intent
+- 🎯 **Multi-Modal**: Can help you discover agents, understand concepts, or build your own
+- 🎨 **Beautiful UI**: Modern, gradient-based design with smooth animations
+- 🔄 **Context-Aware**: Remembers conversation history and provides relevant follow-ups
 
 ## 🎨 Screenshots
 
@@ -30,14 +38,24 @@ Once you have screenshots, uncomment and update these:
 *FastAPI Swagger documentation*
 -->
 
-## Features
+## 🚀 Features
 
-- 🤖 **Intelligent Recommendations**: Uses LangGraph and RAG to understand your needs and recommend relevant AI agent projects
-- 🔍 **Semantic Search**: Vector-based search across 500+ use cases
-- 💻 **CLI Interface**: Command-line tool for quick queries
-- 🌐 **Web Interface**: User-friendly web UI built with Streamlit
-- 🎯 **Multi-turn Conversations**: Context-aware recommendations
-- 🔧 **Framework Filtering**: Filter by CrewAI, AutoGen, LangGraph, etc.
+### Core Capabilities
+- 🧠 **Enhanced Agentic Reasoning**: Advanced LangGraph agent with planning, reflection, and adaptive responses
+- 💬 **Intelligent Chatbot**: Conversational interface that understands intent and provides contextual help
+- 🔍 **Semantic Search**: Vector-based search across 500+ use cases with relevance scoring
+- 🎯 **Multi-Purpose Assistant**: 
+  - **Discover** existing agent use cases
+  - **Understand** AI agent concepts and frameworks
+  - **Build** your own agents with step-by-step guidance
+- 🎨 **Modern UI**: Beautiful gradient design with smooth animations and responsive layout
+- 💡 **Smart Suggestions**: Proactive follow-up questions and recommendations
+- 🔄 **Context Memory**: Maintains conversation history across sessions
+
+### Interfaces
+- 🌐 **Enhanced Web UI**: Modern Streamlit interface with chat and quick search modes
+- 💻 **CLI Interface**: Command-line tool for power users
+- 🔌 **REST API**: Full API for integration with other applications
 
 ## Installation
 
@@ -113,19 +131,25 @@ python -m src.cli.main frameworks
 python -m src.cli.main export -q "customer service" --export-format json
 ```
 
-### Web Interface
+### Web Interface (Enhanced)
 
 1. **Start the API server** (required):
 ```bash
 uvicorn src.api.main:app --reload
 ```
 
-2. **Start the Streamlit app** (in another terminal):
+2. **Start the enhanced Streamlit app** (in another terminal):
 ```bash
-streamlit run web/app.py
+streamlit run web/enhanced_app.py
 ```
 
 3. Open your browser to `http://localhost:8501`
+
+**New Features:**
+- 💬 **Chat Mode**: Conversational interface with the enhanced agent
+- 🔍 **Quick Search**: Fast search with filters
+- 💡 **Smart Suggestions**: Follow-up questions appear automatically
+- 🎨 **Modern Design**: Beautiful gradient UI with animations
 
 ### API Server
 
