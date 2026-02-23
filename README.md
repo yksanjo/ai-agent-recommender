@@ -1,5 +1,12 @@
 # ai-agent-recommender
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/ai-agent-recommender/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/ai-agent-recommender/actions)
+![License](https://img.shields.io/github/license/yksanjo/ai-agent-recommender)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/ai-agent-recommender)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/ai-agent-recommender)
+
 ## Detailed Description
 
 ai-agent-recommender is maintained as an industry-grade software project with production-ready engineering practices.  
